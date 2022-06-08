@@ -38,23 +38,20 @@ describe('<Stepper />', () => {
     .should('contain.text', '3')
   })
 
-
-  it('emits an event called change any time the valule changes', () => {
-    const onChangeSpy = cy.spy().as('onChange')
-    
     it.only('emits stuff', () => {
+      const onChangeSpy = cy.spy().as('onChange')
+    
       cy.mount(Stepper, {
         props: {
           onChange: onChangeSpy
         }
     })
-      .get('incrementSelector')
+      .get(incrementSelector)
       .click()
       .click()
       .get('@onChange')
-      .should('have.been.calledWith', 35)
+      .should('have.been.calledWith', 2)
     })
-  })
 })
 
 //
