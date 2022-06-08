@@ -1,16 +1,42 @@
-<script setup>
-import { ref } from 'vue'
-
-const counter = ref(0)
+<script>
+export default {
+  data() {
+    return {
+      counter: 0
+    }
+  },
+props: {
+  min: {
+    type: Number,
+    default: 0,
+  } ,
+  max: {
+    type: Number,
+    default: 3,
+  },
+},
+methods: {
+  countDown() {
+    if(this.counter == this.min) return
+    this.counter--
+    this.$emit('change', this.counter)
+  },
+  countUp() {
+    if(this.counter == this.max) return
+    this.counter++
+    this.$emit('change', this.counter)
+  }
+}
+}
 </script>
 
 <template>
   <div data-testid="counter" class="counter">
-    <button data-testid="decrement" @click="counter--">
+    <button data-testid="decrement" @click="countDown()">
       <i-mdi-minus-circle />
     </button>
     <span>{{ counter }}</span>
-    <button data-testid="increment" @click="counter++">
+    <button data-testid="increment" @click="countUp()">
       <i-mdi-plus-circle />
     </button>
   </div>
