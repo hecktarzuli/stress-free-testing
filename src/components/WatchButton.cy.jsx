@@ -7,7 +7,7 @@ describe('<WatchButton />', () => {
 
   //it.only('mounts', () => {})
 
-  it.only('renders the text', () => {
+  it('initial state Watch', () => {
     cy.mount(
         <WatchButton
           class="m-2"
@@ -16,23 +16,14 @@ describe('<WatchButton />', () => {
     cy.get('button').should('have.text', 'Watch')
   })
 
-  it.only('has a sku', () => {
-      cy.mount(WatchButton, {
-          props: {
-            sku: '123',
-          }
-          
-    })
-      cy.get('button[data-sku="123"]')
-      .invoke('attr', 'data-sku')
-      .should('equal', '123')
+  it('clicked changes state', () => {
+      cy.mount(<WatchButton/>)
+      .get('button')
+      .should('have.text', 'Watch')
+      .click()
+      .should('have.text', 'Watched')
   })
 
-  it.only('emits when clicked', () => {
-      cy.mount(WatchButton, {
-          
-      }
-  })
 
 
 })
