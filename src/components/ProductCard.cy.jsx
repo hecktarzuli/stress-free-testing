@@ -29,6 +29,20 @@ describe('<ProductCard />', () => {
 
   it.only('mounts', () => {})
 
+ // cy.viewPort(200,200) to test a different device size
+
+  it.only('renders the price', () => {
+    cy.findByText(price).should('be.visible') // findByText uses Testing Library plugin
+  })
+
+  it.only('renders the image', () => {
+    //cy.mount().get('img').should('exist')
+  })
+
+  it('renders the rating', () => {})
+  it('has a watch button', () => {})
+  it('the product watch buton is not selected by default', () => {})
+  
   it.skip('renders a description', () => {
     // You can either try out Testing Library (I suggest cy.findByText)
     // Or, you can add data-testid selectors inside of the ProductCard.
@@ -37,4 +51,5 @@ describe('<ProductCard />', () => {
   it.skip('...', () => {
     // What other features does this ProductCard have?
   })
+
 })

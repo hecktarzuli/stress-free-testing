@@ -39,5 +39,9 @@ export default defineConfig({
     // See https://github.com/antfu/vite-plugin-optimize-persist#motivation
     PkgConfig(),
     OptimizationPersist(),
+    
   ],
+  resolve: {
+    dedupe:['vue']
+  },
 })

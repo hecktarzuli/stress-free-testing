@@ -1,5 +1,7 @@
 <script setup>
 import StarRating from 'vue-star-rating'
+import WatchButton from './WatchButton.vue'
+
 defineProps({
   img: Object,
   description: String,
@@ -7,9 +9,11 @@ defineProps({
   price: String,
   additional: String
 })
+
 </script>
 
 <template>
+<div>
   <a
     href
     class="block p-4 text-gray-800 transition duration-200 border-transparent rounded-lg outline-none cursor-pointer border-1 hover:border-blue-300 focus:border-blue-300 hover:ring-2 focus:ring-2 ring-blue-200 w-259px"
@@ -33,5 +37,7 @@ defineProps({
         class="pt-2 text-sm"
       />
     </p>
-  </a>
+      </a>
+    <watch-button></watch-button>
+</div>
 </template>
